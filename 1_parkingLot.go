@@ -265,3 +265,8 @@ Add PaymentProcessor interface; inject concrete implementations (StripeAdapter, 
 // REMEMBER : CODE THAT GOOD ENOUGH AND ALL REQUIREMENTS SATISFIED >>>>>> CODE THAT IS PERFECT BUT INCOMPLETE ( for the interview )
 // ALL THE BEST
 // *************************************************
+
+// NOTES:
+// Go Concept	-> Python Equivalent
+// map[int]struct{} ->	set()	[ O(1) add/remove, represents free spot IDs ]
+// map[VehicleType]int ->	dict [ Count of free spots per type ]
