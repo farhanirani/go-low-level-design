@@ -33,7 +33,7 @@
 // ----------------------------------------------------------------------
 
 // ----------------------------------------------------------------------
-package main
+package parkinglot
 
 import (
 	"errors"
@@ -130,13 +130,12 @@ func (p *ParkingLot) AddLevel(level *Level) {
 // Park parks a vehicle in O(1) time
 func (p *ParkingLot) Park(v *Vehicle) (int, int, error) {
 	for _, level := range p.Levels {
-		freeSet := level.FreeSpots[v.Type]
-		if len(freeSet) == 0 {
+		if level.FreeCount[v.Type] == 0 {
 			continue // no free spot of this type on this level
 		}
 
 		// Pick any one free spot (O(1))
-		for spotID := range freeSet {
+		for spotID := range level.FreeSpots[v.Type] {
 			spot := level.Spots[spotID]
 			spot.IsOccupied = true
 			spot.Vehicle = v
@@ -192,13 +191,13 @@ func (p *ParkingLot) DisplayAvailability() {
 // ----------------------------
 // DEMO
 // ----------------------------
-func main() {
+func Run() {
 	// Create parking lot
 	lot := NewParkingLot()
 
 	// Add levels
 	lot.AddLevel(NewLevel(1, 3, 3)) // Level 1: 3 CAR, 3 BIKE spots
-	lot.AddLevel(NewLevel(2, 1, 3)) // Level 2: 1 CAR, 3 BIKE spots
+	lot.AddLevel(NewLevel(2, 2, 3)) // Level 2: 1 CAR, 3 BIKE spots
 
 	lot.DisplayAvailability()
 
