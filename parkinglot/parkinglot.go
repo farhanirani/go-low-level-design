@@ -3,7 +3,7 @@
 // ----------------------------------------------------------------------
 // Design a Parking Complex which has multiple levels, and on each level there are parking spots for different vehicles - for CAR and BIKE
 
-// REQUIREMENTS
+// ******** STEP 1. REQUIREMENTS
 // 1. Create a parking lot, add levels with different spots types to it.
 // 2. given a vehicle, park it, and unpark it.
 // 3. display the number of available spots on each level.
@@ -13,26 +13,6 @@
 // Note: If the requirements are not explicitly specified, please clarify them before proceeding
 // ----------------------------------------------------------------------
 
-// ----------------------------------------------------------------------
-// IMPLEMENTATION STEPS
-
-// STEP 1 - DISCUSS ENTITIES AND CORE METHODS TO SATISFY THE REQUIREMENTS
-
-// ParkingLot → has multiple Levels.
-// Level → has multiple Spots.
-// Spot → knows its type (Car, Bike) and occupancy.
-// Vehicle → type, registration.
-
-// STEP 2 - FACTORY & CORE METHODS / APIs
-
-// Park(vehicle) → returns spot info / ticket
-// Unpark(vehicle or ticket) → frees spot
-// GetAvailableSpots(level) → returns count
-
-// STEP 3 - MAIN FUNC DEMO CODE
-// ----------------------------------------------------------------------
-
-// ----------------------------------------------------------------------
 package parkinglot
 
 import (
@@ -40,9 +20,9 @@ import (
 	"fmt"
 )
 
-// ----------------------------
-// ENTITIES
-// ----------------------------
+// ******** STEP 2 - DISCUSS ENTITIES
+
+// Vehicle represents a vehicle
 type VehicleType int
 
 const (
@@ -50,13 +30,12 @@ const (
 	BIKE
 )
 
-// Vehicle represents a vehicle
 type Vehicle struct {
 	Type VehicleType
 	Reg  string
 }
 
-// Spot represents a parking spot
+// Spot → knows its type (Car, Bike) and occupancy.
 type Spot struct {
 	ID          int
 	VehicleType VehicleType
@@ -76,6 +55,12 @@ type Level struct {
 type ParkingLot struct {
 	Levels []*Level
 }
+
+// ******** STEP 3 - FACTORY & CORE METHODS / APIs
+
+// Park(vehicle) → returns spot info / ticket
+// Unpark(vehicle or ticket) → frees spot
+// GetAvailableSpots(level) → returns count
 
 // ----------------------------
 // FACTORY FUNCTIONS
