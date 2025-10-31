@@ -246,8 +246,8 @@ Add PaymentProcessor interface; inject concrete implementations (StripeAdapter, 
 */
 
 // *************************************************
-// REMEMBER : CODE THAT GOOD ENOUGH AND ALL REQUIREMENTS SATISFIED >>>>>> CODE THAT IS PERFECT BUT INCOMPLETE ( for the interview )
-// ALL THE BEST
+// REMEMBER: In interviews, correctness + clarity >>> fancy optimizations
+// Explain trade-offs before you code optimizations.
 // *************************************************
 
 // NOTES:
